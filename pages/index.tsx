@@ -9,11 +9,23 @@ export default function Home() {
   const [seconds, setSeconds] = useState(0);
 
   useEffect(() => {
-    const target = new Date("12/31/2023 23:59:59");
+    const target = new Date("12/31/2022 23:59:59");
     const interval = setInterval(() => {
       const now = new Date();
       const difference = target.getTime() - now.getTime();
-      // console.log(difference);
+
+      const d = Math.floor(difference / (1000 * 60 * 60 * 24));
+      setDays(d);
+      const h = Math.floor(
+        (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      );
+      setHours(h);
+      const m = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+      setMinutes(m);
+      const s = Math.floor((difference % (1000 * 60)) / 1000);
+      setSeconds(s);
+
+      // console.log(s);
     }, 1000);
     return () => clearInterval(interval);
   }, []);
@@ -26,7 +38,22 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="timer-wrapper">
-        <h2>hello typescript</h2>
+        <div className="days-wrapper">
+          <h2 className="days">{days}</h2>
+          <p>Days</p>
+        </div>
+        <div className="hours-wrapper">
+          <h2 className="days">{hours}</h2>
+          <p>Hours</p>
+        </div>
+        <div className="minutes-wrapper">
+          <h2 className="minutes">{minutes}</h2>
+          <p>Minutes</p>
+        </div>
+        <div className="seconds-wrapper">
+          <h2 className="seconds">{seconds}</h2>
+          <p>Seconds</p>
+        </div>
       </div>
     </div>
   );
