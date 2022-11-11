@@ -17,6 +17,7 @@ body,
   margin: auto;
   width: 100%;
   margin-top: 8rem;
+  height: 100vh;
 }
 .timer-inner {
   color: #333;
@@ -25,6 +26,12 @@ body,
   padding: 1rem;
   background-color: rgb(256, 256, 256, 0.8);
   border-radius: 5px;
+
+  flex-wrap: wrap;
+}
+.bg-img {
+  height: 100vh;
+  width: 100%;
 }
 .timer-segment {
   display: flex;
@@ -34,7 +41,6 @@ body,
 .divider {
   font-size: 5rem;
   padding: 0 2rem;
-  margin-top: 1rem;
 }
 .time {
   font-size: 7rem;
@@ -50,4 +56,35 @@ h1 {
 }
 .text::first-letter {
   color: #3e2807;
+}
+@media (max-width: 600px) {
+  .text {
+    font-size: 1rem;
+  }
+  .h1 {
+    font-size: 5rem;
+  }
+  .time {
+    font-size: 3rem;
+  }
+  .divider {
+    font-size: 4rem;
+    padding: 0 2rem;
+  }
+  .bg-img {
+    height: 100vh;
+    width: 100%;
+  }
+  .timer-wrapper {
+    width: 100%;
+    position: absolute;
+    z-index: 10;
+    align-items: center;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin: auto;
+
+    margin-top: 8rem;
+  }
 }

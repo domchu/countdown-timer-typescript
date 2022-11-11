@@ -75,7 +75,12 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <Image src="/Back.jpg" alt="Background image" layout="fill" />
+          <Image
+            src={Back}
+            alt="Background image"
+            layout="responsive"
+            className="bg-img"
+          />
         </>
       )}
     </div>
